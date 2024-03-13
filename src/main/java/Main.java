@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] main){
-String libOrUser="";
+String User_Librarian="";
         do {
             System.out.println("Enter 1 to Login as User or Enter 2 to Login as a Librarian and Enter 3 to Exit");
 
             Scanner input=new Scanner(System.in);
-             libOrUser=input.nextLine();
-            if(libOrUser.equals("1")){
+             User_Librarian=input.nextLine();
+            if(User_Librarian.equals("1")){
                 System.out.println("Enter the Id of the User: ");
                 String id=input.nextLine();
                 if(Database.userLogin(id)) {
@@ -54,7 +54,7 @@ String libOrUser="";
                 else
                     System.out.println("Wrong Credentials");
             }
-            else if(libOrUser.equals("2")) {
+            else if(User_Librarian.equals("2")) {
                 System.out.println("Enter Username of the Librarian: ");
                 System.out.println("Hint: username is `admin`");
                 String username=input.nextLine();
@@ -199,7 +199,7 @@ input=new Scanner(System.in);
             else{
                 System.out.println("Please Try again and give a valid input");
             }
-        }while(!libOrUser.equals("3"));
+        }while(!User_Librarian.equals("3"));
 
     }
 }

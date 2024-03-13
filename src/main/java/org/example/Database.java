@@ -10,29 +10,29 @@ import java.util.ArrayList;
 public class Database {
 
     public static Connection connect(){
-        Connection con=null;
+        Connection conn=null;
         try{
             Class.forName("org.sqlite.JDBC");
-            con=DriverManager.getConnection("jdbc:sqlite:forJava.db");
+            conn=DriverManager.getConnection("jdbc:sqlite:forJava.db");
             System.out.println("Connected");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e+"");
         }
-        return con;
+        return conn;
     }
 
     public static boolean userLogin(String id){
         Connection con =Database.connect();
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+        PreparedStatement pss=null;
+        ResultSet rss=null;
         try{
             String sql="SELECT * From Users where id=?";
-            ps=con.prepareStatement(sql);
-            ps.setString(1,id);
-            rs = ps.executeQuery();
+            pss=con.prepareStatement(sql);
+            pss.setString(1,id);
+            rss = pss.executeQuery();
             String name="";
-            while(rs.next()){
-                 name=rs.getString("Name");
+            while(rss.next()){
+                 name=rss.getString("Name");
             }
             if(name==""){
                 return false;
@@ -44,8 +44,8 @@ public class Database {
             return false;
         }finally {
             try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
+                if (rss != null) rss.close();
+                if (pss != null) pss.close();
                 if (con != null) con.close();
             } catch (SQLException e) {
                 System.out.println(e);

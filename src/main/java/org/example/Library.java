@@ -5,20 +5,20 @@ package org.example;
 import java.util.ArrayList;
 
 public class Library {
-    ArrayList<User> Users=new ArrayList<>();
-    ArrayList<Book> Books=new ArrayList<>();
+    ArrayList<User> _Users =new ArrayList<>();
+    ArrayList<Book> _books =new ArrayList<>();
 
 
     public void addNewUser(User user){
-        Users.add(user);
+        _Users.add(user);
     }
 
     public void addNewBook(Book book){
-        Books.add(book);
+        _books.add(book);
     }
 
-    public Book serachBooks(String _title){
-        for(Book book:Books){
+    public Book search_Books(String _title){
+        for(Book book: _books){
             if(book.title==_title)
                 return book;
         }
@@ -26,7 +26,7 @@ public class Library {
     }
 
     public Book searchBooks(String _author){
-        for(Book book:Books){
+        for(Book book: _books){
             if(book.author==_author)
                 return book;
         }
@@ -35,7 +35,7 @@ public class Library {
 
 
     public ArrayList<Book> checkingBooks(){
-        return Books;
+        return _books;
     }
 
 
